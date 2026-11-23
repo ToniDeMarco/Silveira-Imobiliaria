@@ -96,21 +96,23 @@ function Hero() {
           />
         </div>
 
-        <div className="container-site relative pt-12 sm:pt-16 lg:flex lg:min-h-[40rem] lg:items-center lg:pt-0 lg:pb-24 xl:min-h-[44rem]">
+        <div className="container-site relative pt-6 sm:pt-16 lg:flex lg:min-h-[40rem] lg:items-center lg:pt-0 lg:pb-24 xl:min-h-[44rem]">
           <div className="max-w-xl lg:max-w-[28rem] xl:max-w-xl">
-            <div className="animate-fade-up">
+            {/* No celular o hero vai direto ao ponto: só selo, foto e busca */}
+            <div className="animate-fade-up max-sm:hidden">
               <Eyebrow tone="dark">Venda e locação de imóveis</Eyebrow>
             </div>
-            <h1 className="animate-fade-up mt-6 text-[2.75rem] leading-[1.02] font-semibold text-white [animation-delay:120ms] sm:text-6xl lg:text-[3.4rem] xl:text-[4.25rem]">
+            {/* Título só visual a partir do tablet; no celular segue para Google e leitores de tela */}
+            <h1 className="animate-fade-up mt-6 text-[2.75rem] max-sm:sr-only leading-[1.02] font-semibold text-white [animation-delay:120ms] sm:text-6xl lg:text-[3.4rem] xl:text-[4.25rem]">
               Encontre o imóvel
               <br />
               <span className="text-secondary-300">ideal</span> em {siteConfig.city}
             </h1>
-            <p className="animate-fade-up mt-6 max-w-md text-base text-white/70 [animation-delay:240ms] sm:text-lg lg:max-w-[22rem] xl:max-w-md">
+            <p className="animate-fade-up mt-6 max-w-md text-base max-sm:hidden text-white/70 [animation-delay:240ms] sm:text-lg lg:max-w-[22rem] xl:max-w-md">
               Casas, apartamentos, terrenos e imóveis rurais à venda e para alugar, com atendimento
               próximo e toda a segurança que a sua negociação merece.
             </p>
-            <div className="animate-fade-up mt-9 flex flex-wrap items-center gap-3 [animation-delay:360ms]">
+            <div className="animate-fade-up mt-9 flex flex-wrap items-center gap-3 [animation-delay:360ms] max-sm:hidden">
               <Link href="/imoveis" className={buttonClasses({ variant: "secondary", size: "lg" })}>
                 Ver imóveis
                 <ArrowRight className="h-4.5 w-4.5" aria-hidden="true" />
@@ -129,7 +131,7 @@ function Hero() {
             </div>
 
             {/* Selo de credencial (no lugar de números inventados) */}
-            <div className="animate-fade-up mt-10 flex items-center gap-3 [animation-delay:480ms]">
+            <div className="animate-fade-up mt-10 flex items-center gap-3 [animation-delay:480ms] max-sm:mt-0 max-sm:[animation-delay:0ms]">
               <span className="grid h-12 w-12 place-items-center rounded-full bg-white/5 ring-1 ring-white/15">
                 <LogoMark tone="light" className="h-6 w-6" />
               </span>
