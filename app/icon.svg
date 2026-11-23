@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#fbe7a1"/>
+      <stop offset=".35" stop-color="#e6b444"/>
+      <stop offset=".65" stop-color="#c08a22"/>
+      <stop offset="1" stop-color="#e9c25c"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="11" fill="#1f3a2f"/>
+  <!-- Prédios da logo da Silveira Corretora (coordenadas originais escaladas) -->
+  <g transform="translate(24 25) scale(0.19) translate(-241.5 -112)" fill="url(#g)">
+    <path d="M159 151V110L173.5 90.5L187 110V151ZM196 151V78H233V151ZM249 151V53H286V110H308V132H326V151Z"/>
+    <rect x="138" y="151" width="207" height="14"/>
+  </g>
+</svg>

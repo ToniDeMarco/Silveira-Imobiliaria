@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CORES DA MARCA
+   Para outro cliente, troque apenas as escalas abaixo.
+   `primary`   → cor institucional (botões, rodapé, títulos de destaque)
+   `secondary` → cor de apoio (selos, detalhes, ícones)
+   ========================================================================== */
+@theme {
+  --color-primary-50: #f1f6f3;
+  --color-primary-100: #dde9e2;
+  --color-primary-200: #bcd3c6;
+  --color-primary-300: #91b5a2;
+  --color-primary-400: #64917b;
+  --color-primary-500: #46755f;
+  --color-primary-600: #355d4b;
+  --color-primary-700: #2b4b3d;
+  --color-primary-800: #233d32;
+  --color-primary-900: #1c3129;
+  --color-primary-950: #0f1c17;
+  --color-primary: #1f3a2f;
+
+  --color-secondary-50: #fbf8f3;
+  --color-secondary-100: #f5efe4;
+  --color-secondary-200: #ebdfca;
+  --color-secondary-300: #dcc8a6;
+  --color-secondary-400: #cbad80;
+  --color-secondary-500: #bd9563;
+  --color-secondary-600: #a97d4f;
+  --color-secondary-700: #8c6442;
+  --color-secondary-800: #73523a;
+  --color-secondary-900: #5f4532;
+  --color-secondary: #c9a876;
+
+  /* Fundo bege (contraste suave com os cards brancos) e cor do texto */
+  --color-surface: #ede6d9;
+  --color-ink: #1b221f;
+}
+
+/* Fontes (definidas em app/layout.tsx via next/font) */
+@theme inline {
+  /* Títulos: EB Garamond · Texto: Manrope (definidas em app/layout.tsx) */
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-display), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    font-variant-numeric: lining-nums;
+    /* Títulos justificados a partir de telas médias. No celular ficam à
+       esquerda: em colunas estreitas o justificado abre "buracos" entre as
+       palavras. A hifenização (pt-BR) e o "pretty" ajudam a reduzir os espaços. */
+    hyphens: auto;
+    text-wrap: pretty;
+    @media (width >= 40rem) {
+      text-align: justify;
+    }
+  }
+
+  /* Títulos dentro de blocos centralizados continuam centralizados. */
+  .text-center > :is(h1, h2, h3),
+  :is(h1, h2, h3).text-center {
+    text-align: center;
+  }
+
+  ::selection {
+    background-color: var(--color-secondary-300);
+    color: var(--color-primary-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-secondary-500);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Utilitários do layout
+   ========================================================================== */
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Remove setas de inputs numéricos (filtros de preço) */
+@utility no-spinner {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ==========================================================================
+   Tela de carregamento (preloader)
+   Funciona só com CSS: os prédios da logo sobem, o nome aparece e a tela some
+   sozinha. O script inline apenas pula a animação para quem já a viu na sessão.
+   ========================================================================== */
+@keyframes preloader-base {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes preloader-predio {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes preloader-text {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    letter-spacing: 0.5em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes preloader-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes preloader-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-2%);
+  }
+}
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 40%, var(--color-secondary-50), transparent 60%),
+    var(--color-surface);
+  animation: preloader-out 0.7s cubic-bezier(0.65, 0, 0.35, 1) 2s forwards;
+  pointer-events: none;
+}
+
+/* Prédios da logo "sobem" da base, um de cada vez */
+.preloader [data-base] {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: preloader-base 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+.preloader [data-predio] {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: preloader-predio 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.preloader [data-predio="0"] {
+  animation-delay: 0.35s;
+}
+.preloader [data-predio="1"] {
+  animation-delay: 0.5s;
+}
+.preloader [data-predio="2"] {
+  animation-delay: 0.65s;
+}
+
+.preloader-text {
+  animation: preloader-text 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+}
+
+.preloader-bar {
+  transform-origin: left;
+  animation: preloader-bar 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s both;
+}
+
+.rc-skip-preloader .preloader {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader {
+    display: none;
+  }
+}
+
+/* Sombra suave no cabeçalho quando a página rola (data-scrolled: HeaderScroll) */
+[data-site-header][data-scrolled] {
+  box-shadow: 0 12px 32px -16px rgb(0 0 0 / 0.45);
+}
