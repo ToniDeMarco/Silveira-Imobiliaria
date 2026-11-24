@@ -26,10 +26,10 @@ const redes = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 bg-primary text-white/75">
+    <footer className="fundo-rodape relative mt-24 text-white/75">
       <div className="container-site relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
         <div className="text-center sm:text-left">
-          <Logo tone="light" variante="vertical" className="mx-auto h-36 w-auto sm:mx-0" />
+          <Logo tone="light" className="mx-auto h-20 w-auto sm:mx-0" />
           <p className="mx-auto mt-5 max-w-xs text-sm leading-relaxed max-sm:text-balance sm:mx-0">{siteConfig.slogan}</p>
           <p className="mt-4 inline-block rounded-full border border-white/15 px-3 py-1 text-xs font-semibold tracking-wide text-secondary-200">
             {siteConfig.creci}

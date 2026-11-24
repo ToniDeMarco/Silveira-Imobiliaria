@@ -15,7 +15,7 @@ export async function BuscaRapida() {
   return (
     <Form
       action="/imoveis"
-      className="rounded-[1.75rem] bg-white p-3 shadow-[0_24px_60px_-24px_rgba(16,24,20,0.35)] ring-1 ring-primary/5 sm:p-4"
+      className="bg-white p-3 shadow-[0_24px_60px_-24px_rgba(12,18,32,0.35)] ring-1 ring-primary/5 sm:p-4"
     >
       <fieldset className="mb-3 flex gap-1 rounded-md bg-surface p-1 sm:w-fit">
         <legend className="sr-only">Finalidade</legend>
@@ -39,7 +39,7 @@ export async function BuscaRapida() {
       </fieldset>
 
       <div className="grid gap-2 sm:grid-cols-[1fr_1fr_auto] sm:items-center sm:gap-0">
-        <label className="flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-surface sm:border-r sm:border-primary/10 sm:rounded-none">
+        <label className="flex items-center gap-3 px-4 py-3 transition hover:bg-surface sm:border-r sm:border-primary/10">
           <Building2 className="h-5 w-5 shrink-0 text-secondary-600" aria-hidden="true" />
           <span className="flex flex-1 flex-col">
             <span className="text-xs text-ink/50">Tipo de imóvel</span>
@@ -54,7 +54,7 @@ export async function BuscaRapida() {
           </span>
         </label>
 
-        <label className="flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-surface sm:rounded-none">
+        <label className="flex items-center gap-3 px-4 py-3 transition hover:bg-surface">
           <MapPin className="h-5 w-5 shrink-0 text-secondary-600" aria-hidden="true" />
           <span className="flex flex-1 flex-col">
             <span className="text-xs text-ink/50">Cidade</span>

@@ -52,7 +52,7 @@ export default function ContatoPage() {
           {canais.map(({ Icon, titulo, valor, href, externo }) => {
             const conteudo = (
               <>
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-secondary-100 text-primary transition group-hover:bg-primary group-hover:text-secondary-200">
+                <span className="grid h-12 w-12 shrink-0 place-items-center bg-secondary-100 text-primary transition group-hover:bg-primary group-hover:text-secondary-200">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
@@ -62,7 +62,7 @@ export default function ContatoPage() {
               </>
             );
             const classes =
-              "group flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-primary/5";
+              "group flex items-center gap-4 bg-white p-5 ring-1 ring-primary/5";
             return (
               <li key={titulo}>
                 {href ? (
@@ -81,7 +81,7 @@ export default function ContatoPage() {
           })}
         </ul>
 
-        <div className="rounded-3xl bg-white p-6 shadow-[0_20px_50px_-24px_rgba(16,24,20,0.25)] ring-1 ring-primary/5 sm:p-8">
+        <div className="bg-white p-6 shadow-[0_20px_50px_-24px_rgba(12,18,32,0.25)] ring-1 ring-primary/5 sm:p-8">
           <h2 className="text-2xl text-primary">Envie uma mensagem</h2>
           <p className="mt-1.5 mb-6 text-sm text-ink/60">
             Conte o que você procura ou qual imóvel deseja anunciar.

@@ -9,10 +9,10 @@
 const whatsappRaw = process.env.NEXT_PUBLIC_WHATSAPP || "5538991485383";
 
 export const siteConfig = {
-  name: "Silveira Corretora",
-  shortName: "Silveira",
-  /** Linha exibida abaixo do nome na logo. */
-  tagline: "Corretora de Imóveis",
+  name: "Imobiliária Exemplo",
+  shortName: "Imobiliária Exemplo",
+  /** Descrição curta da empresa (ex.: página Sobre). */
+  tagline: "Imobiliária",
   description:
     "Casas, apartamentos, terrenos e imóveis rurais à venda e para alugar em Janaúba e região. Atendimento próximo, transparente e com segurança jurídica.",
   slogan: "O seu próximo endereço em Janaúba começa aqui.",
@@ -29,7 +29,7 @@ export const siteConfig = {
   /** Somente dígitos, com DDI (55) + DDD. Pode ser sobrescrito por NEXT_PUBLIC_WHATSAPP. */
   whatsapp: whatsappRaw.replace(/\D/g, ""),
   // TODO: e-mail fictício — substituir pelo e-mail real do cliente.
-  email: "contato@silveiracorretora.com.br",
+  email: "contato@imobiliariaexemplo.com.br",
   // TODO: horário fictício — confirmar com o cliente.
   horario: "Segunda a sexta, 8h às 18h · Sábado, 8h às 12h",
 

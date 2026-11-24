@@ -38,7 +38,7 @@ export default function ImoveisPage({ searchParams }: PageProps<"/imoveis">) {
       />
       <div className="container-site grid items-start gap-8 lg:grid-cols-[18.5rem_1fr]">
         <aside>
-          <Suspense fallback={<div className="h-14 animate-pulse rounded-2xl bg-white lg:h-[42rem] lg:rounded-3xl" />}>
+          <Suspense fallback={<div className="h-14 animate-pulse bg-white lg:h-[42rem]" />}>
             <Filtros searchParams={searchParams} />
           </Suspense>
         </aside>
@@ -90,7 +90,7 @@ async function Resultados({ searchParams }: { searchParams: SP }) {
           <Paginacao filtros={filtros} totalPaginas={totalPaginas} />
         </>
       ) : (
-        <div className="rounded-3xl border border-dashed border-primary/15 bg-white/60 px-6 py-16 text-center">
+        <div className="border border-dashed border-primary/15 bg-white/60 px-6 py-16 text-center">
           <SearchX className="mx-auto h-10 w-10 text-secondary-600" strokeWidth={1.5} aria-hidden="true" />
           <p className="mt-4 font-serif text-2xl text-primary">Nenhum imóvel encontrado</p>
           <p className="mx-auto mt-2 max-w-md text-sm text-ink/60">

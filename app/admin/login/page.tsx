@@ -18,7 +18,7 @@ export default function LoginPage({ searchParams }: PageProps<"/admin/login">) {
           className="pointer-events-none absolute -bottom-24 -left-24 h-[36rem] w-[36rem] opacity-[0.07]"
         />
         <div className="relative flex h-full flex-col justify-between p-12">
-          <Logo tone="light" variante="vertical" className="h-40 w-auto self-start" />
+          <Logo tone="light" className="h-24 w-auto self-start" />
           <div>
             <p className="font-serif text-4xl leading-tight text-white">
               Painel de gestão
@@ -36,7 +36,7 @@ export default function LoginPage({ searchParams }: PageProps<"/admin/login">) {
       <div className="flex flex-col justify-center px-6 py-12 sm:px-12">
         <div className="mx-auto w-full max-w-sm">
           <div className="mb-10 lg:hidden">
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-14 w-auto" />
           </div>
           <h1 className="text-3xl text-primary">Entrar no painel</h1>
           <p className="mt-2 mb-8 text-sm text-ink/60">Acesso restrito à equipe da imobiliária.</p>

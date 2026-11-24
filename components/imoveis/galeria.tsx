@@ -13,7 +13,7 @@ export function Galeria({ fotos, titulo }: { fotos: Foto[]; titulo: string }) {
 
   if (fotos.length === 0) {
     return (
-      <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] sm:aspect-[21/9]">
+      <div className="relative aspect-[16/9] overflow-hidden sm:aspect-[21/9]">
         <FotoPlaceholder />
       </div>
     );
@@ -28,7 +28,7 @@ export function Galeria({ fotos, titulo }: { fotos: Foto[]; titulo: string }) {
         <button
           type="button"
           onClick={() => setAberta(0)}
-          className={`group relative aspect-[4/3] overflow-hidden rounded-[1.75rem] md:aspect-auto ${
+          className={`group relative aspect-[4/3] overflow-hidden md:aspect-auto ${
             laterais.length ? "md:col-span-2 md:row-span-2" : "md:col-span-4 md:row-span-2"
           }`}
           aria-label="Abrir galeria de fotos"
@@ -55,9 +55,7 @@ export function Galeria({ fotos, titulo }: { fotos: Foto[]; titulo: string }) {
               key={foto.id}
               type="button"
               onClick={() => setAberta(indice)}
-              className={`group relative hidden overflow-hidden md:block ${
-                i === 1 ? "rounded-tr-[1.75rem]" : ""
-              } ${i === 3 ? "rounded-br-[1.75rem]" : ""} rounded-xl`}
+              className="group relative hidden overflow-hidden md:block"
               aria-label={`Abrir foto ${indice + 1}`}
             >
               <Image
@@ -203,7 +201,7 @@ function Lightbox({
               onClick={() => setIndice(i)}
               aria-label={`Ver foto ${i + 1}`}
               aria-current={i === indice}
-              className={`relative h-14 w-20 shrink-0 overflow-hidden rounded-lg transition ${
+              className={`relative h-14 w-20 shrink-0 overflow-hidden transition ${
                 i === indice ? "ring-2 ring-secondary-300" : "opacity-50 hover:opacity-90"
               }`}
             >

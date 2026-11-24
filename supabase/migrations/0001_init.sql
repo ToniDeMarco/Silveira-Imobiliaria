@@ -1,5 +1,5 @@
 -- =============================================================================
--- Silveira Corretora — estrutura inicial
+-- Imobiliária Exemplo — estrutura inicial
 -- Rode no Supabase: SQL Editor → cole este arquivo → Run.
 -- =============================================================================
 

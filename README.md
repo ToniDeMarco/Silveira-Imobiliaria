@@ -1,4 +1,4 @@
-# Silveira Corretora — site + painel administrativo
+# Imobiliária Exemplo — site + painel administrativo
 
 Site de imobiliária com listagem e busca de imóveis, página de cada imóvel com galeria,
 captação de leads e painel administrativo com upload de fotos.
@@ -51,7 +51,7 @@ imóveis. O painel fica em <http://localhost:3000/admin>.
 
 1. Crie uma conta em <https://supabase.com> e clique em **New project**.
 2. Preencha:
-   - **Project name**: ex.: `silveira-corretora`.
+   - **Project name**: ex.: `imobiliaria-exemplo`.
    - **Database password**: clique em *Generate a password* e guarde num gerenciador de senhas
      (o site não usa essa senha, mas você pode precisar dela no futuro).
    - **Region**: clique em *Need a specific region?* e escolha **South America (São Paulo)**.
@@ -87,7 +87,7 @@ O painel não tem cadastro público — só entra quem você criar. Para garanti
 1. **Authentication → Sign In / Providers** → em **User Signups**, **desative**
    *“Allow new users to sign up”*. Mantenha o provedor **Email** habilitado.
 2. **Authentication → URL Configuration**:
-   - **Site URL**: a URL do site em produção (ex.: `https://www.silveiracorretora.com.br`).
+   - **Site URL**: a URL do site em produção (ex.: `https://www.imobiliariaexemplo.com.br`).
    - **Redirect URLs**: adicione também `http://localhost:3000/**`.
 
 > Mesmo que alguém consiga criar uma conta, ela não terá acesso a nada: o banco só libera dados
@@ -153,7 +153,7 @@ Dentro da pasta do projeto:
 ```bash
 git init
 git add .
-git commit -m "Site Silveira Corretora"
+git commit -m "Site Imobiliária Exemplo"
 ```
 
 Crie um repositório **privado** no GitHub e siga as instruções dele para `git remote add origin …`
@@ -165,7 +165,7 @@ e `git push -u origin main`.
 2. Framework: **Next.js** (detectado automaticamente). Não altere os comandos de build.
 3. Em **Environment Variables**, cadastre as 5 variáveis do passo 6, marcando
    **Production** e **Preview**. Em produção, use `NEXT_PUBLIC_SITE_URL` com o domínio final
-   (ex.: `https://www.silveiracorretora.com.br`).
+   (ex.: `https://www.imobiliariaexemplo.com.br`).
 4. Clique em **Deploy**.
 5. Depois do primeiro deploy: **Project → Settings → Functions → Function Region** →
    escolha **São Paulo, Brazil (gru1)** — a mesma região do Supabase — e faça **Redeploy**.

@@ -7,7 +7,7 @@ import { TIPOS, TIPO_LABEL } from "@/types/imovel";
 import { buttonClasses } from "@/components/ui/button";
 
 const campo =
-  "h-11 w-full rounded-xl border border-primary/10 bg-white px-3.5 text-sm text-ink outline-none transition focus:border-secondary-500 focus:ring-2 focus:ring-secondary-500/20";
+  "h-11 w-full border border-primary/10 bg-white px-3.5 text-sm text-ink outline-none transition focus:border-secondary-500 focus:ring-2 focus:ring-secondary-500/20";
 
 function Grupo({ titulo, children }: { titulo: string; children: ReactNode }) {
   return (

@@ -63,13 +63,8 @@ export default function HomePage() {
 function Hero() {
   return (
     <>
-      <section
-        className="relative overflow-hidden bg-primary-950"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse 70% 60% at 8% 12%, rgb(201 168 118 / 0.10), transparent 60%), linear-gradient(160deg, #13261e 0%, #0b1712 70%)",
-        }}
-      >
+      {/* Fundo: degradê escuro + textura (classe .fundo-hero em globals.css) */}
+      <section className="fundo-hero relative overflow-hidden">
         <HeroCurvaDefs />
 
         {/* Foto (desktop): metade direita, recortada pela curva */}
@@ -137,7 +132,7 @@ function Hero() {
               </span>
               <div className="leading-tight">
                 <p className="text-sm font-bold text-white">{siteConfig.creci}</p>
-                <p className="text-xs text-white/55">Corretora credenciada · {siteConfig.region}</p>
+                <p className="text-xs text-white/55">Imobiliária credenciada · {siteConfig.region}</p>
               </div>
             </div>
           </div>
@@ -194,7 +189,7 @@ function Categorias() {
           <li key={tipo}>
             <Link
               href={`/imoveis?tipo=${tipo}`}
-              className="group flex flex-col items-center gap-3 rounded-2xl bg-white/60 px-2 py-5 text-center ring-1 ring-primary/5 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
+              className="group flex flex-col items-center gap-3 bg-white/60 px-2 py-5 text-center ring-1 ring-primary/5 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
             >
               <span className="grid h-12 w-12 place-items-center rounded-full bg-secondary-100 text-primary transition group-hover:bg-primary group-hover:text-secondary-200">
                 <Icon className="h-5.5 w-5.5" strokeWidth={1.6} aria-hidden="true" />
@@ -231,20 +226,20 @@ function Sobre() {
     <section className="container-site mt-24 sm:mt-32">
       <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr_0.8fr] lg:gap-10">
         <div className="relative">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] rounded-tr-[6rem] shadow-xl shadow-primary/10">
+          <div className="relative aspect-[5/4] overflow-hidden shadow-xl shadow-primary/10">
             <Image
               src={sobreImg}
-              alt="Sala de estar ampla e iluminada"
+              alt="Mão segurando a chave de uma casa nova, com chaveiro em forma de casa"
               fill
               placeholder="blur"
               sizes="(min-width: 1024px) 480px, 100vw"
               className="object-cover"
             />
           </div>
-          <div className="absolute -right-3 -bottom-6 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-lg ring-1 ring-primary/5 sm:-right-6">
+          <div className="absolute -right-3 -bottom-6 flex items-center gap-3 bg-white p-4 shadow-lg ring-1 ring-primary/5 sm:-right-6">
             <LogoMark className="h-10 w-10" />
             <div className="leading-tight">
-              <p className="text-xs text-ink/50">Corretora credenciada</p>
+              <p className="text-xs text-ink/50">Imobiliária credenciada</p>
               <p className="text-sm font-bold text-primary">{siteConfig.creci}</p>
             </div>
           </div>
@@ -308,7 +303,7 @@ async function Destaques() {
         {imoveis.length > 0 ? (
           <ImovelGrid imoveis={imoveis} />
         ) : (
-          <div className="rounded-3xl border border-dashed border-primary/15 bg-white/50 px-6 py-16 text-center">
+          <div className="border border-dashed border-primary/15 bg-white/50 px-6 py-16 text-center">
             <LogoMark className="mx-auto h-12 w-12 opacity-60" />
             <p className="mt-4 font-serif text-xl text-primary">Novos imóveis chegando em breve</p>
             <p className="mt-2 text-sm text-ink/60">
@@ -333,7 +328,7 @@ async function Destaques() {
 function ChamadaWhatsApp() {
   return (
     <section className="container-site mt-28 sm:mt-36">
-      <div className="relative isolate overflow-hidden rounded-[2rem] bg-primary px-6 py-14 sm:rounded-[2.5rem] sm:px-14 sm:py-16">
+      <div className="relative isolate overflow-hidden bg-primary px-6 py-14 sm:px-14 sm:py-16">
         <LogoMark
           tone="light"
           className="pointer-events-none absolute -top-12 -right-12 -z-10 h-80 w-80 opacity-[0.08]"

@@ -11,7 +11,7 @@ import { buttonClasses } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/ui/brand-icons";
 
 const campo =
-  "w-full rounded-xl border border-primary/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-secondary-500 focus:ring-2 focus:ring-secondary-500/20 aria-[invalid=true]:border-red-400 aria-[invalid=true]:ring-red-400/15";
+  "w-full border border-primary/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-secondary-500 focus:ring-2 focus:ring-secondary-500/20 aria-[invalid=true]:border-red-400 aria-[invalid=true]:ring-red-400/15";
 
 export function LeadForm({
   imovelId = null,
@@ -66,7 +66,7 @@ export function LeadForm({
 
   if (enviado !== null) {
     return (
-      <div className="rounded-2xl bg-primary-50 p-6 text-center ring-1 ring-primary-100" role="status">
+      <div className="bg-primary-50 p-6 text-center ring-1 ring-primary-100" role="status">
         <CircleCheck className="mx-auto h-10 w-10 text-primary-500" strokeWidth={1.5} aria-hidden="true" />
         <p className="mt-3 font-serif text-xl text-primary">Mensagem enviada{enviado ? `, ${enviado}` : ""}!</p>
         <p className="mt-1.5 text-sm text-ink/65">Retornaremos o contato o quanto antes.</p>
@@ -154,7 +154,7 @@ export function LeadForm({
       </Campo>
 
       {erroGeral && (
-        <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
+        <p className="bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
           {erroGeral}
         </p>
       )}

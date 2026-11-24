@@ -14,7 +14,7 @@ export function FiltrosPainel({ ativos, children }: { ativos: number; children: 
         onClick={() => setAberto((v) => !v)}
         aria-expanded={aberto}
         aria-controls="painel-filtros"
-        className="flex w-full items-center justify-between rounded-2xl bg-white px-5 py-4 font-semibold text-primary shadow-sm ring-1 ring-primary/5 lg:hidden"
+        className="flex w-full items-center justify-between bg-white px-5 py-4 font-semibold text-primary shadow-sm ring-1 ring-primary/5 lg:hidden"
       >
         <span className="flex items-center gap-2">
           <SlidersHorizontal className="h-4.5 w-4.5" aria-hidden="true" />
@@ -30,7 +30,7 @@ export function FiltrosPainel({ ativos, children }: { ativos: number; children: 
 
       <div
         id="painel-filtros"
-        className={`${aberto ? "mt-3 block" : "hidden"} rounded-3xl bg-white p-6 shadow-sm ring-1 ring-primary/5 lg:sticky lg:top-24 lg:mt-0 lg:block`}
+        className={`${aberto ? "mt-3 block" : "hidden"} bg-white p-6 shadow-sm ring-1 ring-primary/5 lg:sticky lg:top-24 lg:mt-0 lg:block`}
       >
         <p className="mb-6 hidden font-serif text-xl text-primary lg:block">Filtrar imóveis</p>
         {children}

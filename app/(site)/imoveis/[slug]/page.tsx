@@ -199,7 +199,7 @@ async function ImovelConteudo({ params }: { params: PageProps<"/imoveis/[slug]">
           </div>
 
           <aside className="lg:sticky lg:top-24">
-            <div className="rounded-3xl bg-white p-6 shadow-[0_20px_50px_-24px_rgba(16,24,20,0.25)] ring-1 ring-primary/5 sm:p-7">
+            <div className="bg-white p-6 shadow-[0_20px_50px_-24px_rgba(12,18,32,0.25)] ring-1 ring-primary/5 sm:p-7">
               <p className="text-sm text-ink/50">Código {imovel.codigo}</p>
               <p className="mt-1 text-2xl font-bold text-primary">
                 {formatPreco(imovel.preco)}
@@ -282,8 +282,8 @@ function Especificacoes({ imovel }: { imovel: ImovelComFotos }) {
     <section aria-label="Dados principais">
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
         {itens.map(({ Icon, label, valor }) => (
-          <li key={label} className="flex items-center gap-3.5 rounded-2xl bg-white p-4 ring-1 ring-primary/5">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-secondary-100 text-primary">
+          <li key={label} className="flex items-center gap-3.5 bg-white p-4 ring-1 ring-primary/5">
+            <span className="grid h-11 w-11 shrink-0 place-items-center bg-secondary-100 text-primary">
               <Icon className="h-5 w-5" strokeWidth={1.7} aria-hidden="true" />
             </span>
             <div className="min-w-0">
@@ -312,7 +312,7 @@ function Localizacao({ imovel }: { imovel: ImovelComFotos }) {
         </p>
       )}
       {temMapa && (
-        <div className="mt-5 overflow-hidden rounded-3xl ring-1 ring-primary/5">
+        <div className="mt-5 overflow-hidden ring-1 ring-primary/5">
           <iframe
             title={`Mapa da localização aproximada de ${imovel.titulo}`}
             src={`https://maps.google.com/maps?q=${imovel.latitude},${imovel.longitude}&z=15&output=embed`}
@@ -360,7 +360,7 @@ function ImovelSkeleton() {
       <div className="h-4 w-64 animate-pulse rounded bg-secondary-100" />
       <div className="mt-8 h-10 w-2/3 animate-pulse rounded bg-secondary-100" />
       <div className="mt-4 h-5 w-1/3 animate-pulse rounded bg-secondary-100" />
-      <div className="mt-8 h-[22rem] animate-pulse rounded-[2rem] bg-secondary-100 md:h-[30rem]" />
+      <div className="mt-8 h-[22rem] animate-pulse bg-secondary-100 md:h-[30rem]" />
     </div>
   );
 }

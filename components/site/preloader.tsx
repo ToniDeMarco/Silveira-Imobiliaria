@@ -1,4 +1,3 @@
-import { siteConfig } from "@/config/site";
 import { InlineScript } from "@/components/ui/inline-script";
 import { LogoMark } from "./logo";
 
@@ -15,13 +14,7 @@ export function Preloader() {
       <InlineScript html={SKIP_SCRIPT} />
       <div className="preloader" aria-hidden="true">
         <div className="flex flex-col items-center">
-          <LogoMark className="h-20 w-32" />
-          <div className="preloader-text mt-5 text-center">
-            <p className="text-3xl font-extrabold tracking-tight text-primary">{siteConfig.shortName}</p>
-            <p className="mt-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-secondary-700">
-              {siteConfig.tagline} · {siteConfig.city}
-            </p>
-          </div>
+          <LogoMark tone="dark" className="h-24 w-24" />
           <div className="mt-7 h-px w-40 overflow-hidden rounded-full bg-primary/10">
             <div className="preloader-bar h-full w-full bg-secondary-500" />
           </div>

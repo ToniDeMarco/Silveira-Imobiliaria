@@ -43,7 +43,7 @@ export default function SobrePage() {
       />
 
       <section className="container-site mt-6 grid items-center gap-12 lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] rounded-bl-[6rem] shadow-xl shadow-primary/10">
+        <div className="relative aspect-[4/3] overflow-hidden shadow-xl shadow-primary/10">
           <Image
             src={sobreImg}
             alt="Casa moderna com piscina"
@@ -87,8 +87,8 @@ export default function SobrePage() {
         <SectionHeading align="center" eyebrow="Nossos valores" title="O que guia o nosso trabalho" />
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {VALORES.map(({ Icon, titulo, texto }) => (
-            <li key={titulo} className="rounded-3xl bg-white p-7 ring-1 ring-primary/5 transition hover:-translate-y-1 hover:shadow-lg">
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-secondary-100 text-primary">
+            <li key={titulo} className="bg-white p-7 ring-1 ring-primary/5 transition hover:-translate-y-1 hover:shadow-lg">
+              <span className="grid h-12 w-12 place-items-center bg-secondary-100 text-primary">
                 <Icon className="h-5.5 w-5.5" strokeWidth={1.7} aria-hidden="true" />
               </span>
               <h3 className="mt-5 text-xl text-primary">{titulo}</h3>
@@ -99,7 +99,7 @@ export default function SobrePage() {
       </section>
 
       <section className="container-site mt-28">
-        <div className="rounded-[2.5rem] bg-secondary-100 px-6 py-14 sm:px-12">
+        <div className="bg-secondary-100 px-6 py-14 sm:px-12">
           <SectionHeading align="center" eyebrow="Como trabalhamos" title="Do primeiro contato às chaves na mão" />
           <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {ETAPAS.map((etapa, i) => (

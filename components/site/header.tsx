@@ -18,7 +18,7 @@ export function Header() {
       <HeaderScroll />
       <div className="container-site flex h-[4.5rem] items-center justify-between gap-4">
         <Link href="/" aria-label={`${siteConfig.name} — página inicial`} className="shrink-0">
-          <Logo tone="light" className="h-14 w-auto" />
+          <Logo tone="light" className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden lg:block" aria-label="Menu principal">
