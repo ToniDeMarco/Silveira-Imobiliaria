@@ -11,7 +11,7 @@ export function ImovelCard({ imovel }: { imovel: ImovelCardData }) {
   const href = `/imoveis/${imovel.slug}`;
 
   return (
-    <article className="group relative flex flex-col overflow-hidden bg-white shadow-[0_1px_2px_rgba(12,18,32,0.04),0_8px_24px_-12px_rgba(12,18,32,0.12)] ring-1 ring-primary/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(12,18,32,0.04),0_20px_40px_-16px_rgba(12,18,32,0.22)]">
+    <article className="group relative flex flex-col overflow-hidden bg-white ring-1 ring-primary/5 transition-all duration-300 sombra-card hover:-translate-y-1 hover:sombra-card-forte">
       <div className="relative aspect-[4/3] overflow-hidden bg-secondary-100">
         {imovel.capa ? (
           <Image
@@ -44,7 +44,7 @@ export function ImovelCard({ imovel }: { imovel: ImovelCardData }) {
           <span className="text-ink/40">{imovel.codigo}</span>
         </div>
 
-        <h3 className="font-serif text-xl leading-snug text-primary">
+        <h3 className="text-left font-serif text-xl leading-snug text-primary">
           <Link href={href} className="after:absolute after:inset-0 focus:outline-none">
             {imovel.titulo}
           </Link>
@@ -109,7 +109,7 @@ export function ImovelGridSkeleton({
   return (
     <div className={`grid gap-6 ${colunas}`} aria-hidden="true">
       {Array.from({ length: quantidade }, (_, i) => (
-        <div key={i} className="overflow-hidden bg-white ring-1 ring-primary/5">
+        <div key={i} className="overflow-hidden bg-white ring-1 ring-primary/5 sombra-card">
           <div className="aspect-[4/3] animate-pulse bg-secondary-100" />
           <div className="space-y-3 p-5">
             <div className="h-3 w-20 animate-pulse rounded bg-secondary-100" />

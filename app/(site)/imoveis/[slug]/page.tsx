@@ -141,7 +141,7 @@ async function ImovelConteudo({ params }: { params: PageProps<"/imoveis/[slug]">
                 </span>
               )}
             </div>
-            <h1 className="mt-4 max-w-3xl text-3xl leading-tight text-primary sm:text-[2.6rem]">
+            <h1 className="mt-4 max-w-3xl text-left text-3xl leading-tight text-balance text-primary sm:text-[2.6rem]">
               {imovel.titulo}
             </h1>
             {local && (
@@ -282,7 +282,7 @@ function Especificacoes({ imovel }: { imovel: ImovelComFotos }) {
     <section aria-label="Dados principais">
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
         {itens.map(({ Icon, label, valor }) => (
-          <li key={label} className="flex items-center gap-3.5 bg-white p-4 ring-1 ring-primary/5">
+          <li key={label} className="flex items-center gap-3.5 bg-white p-4 ring-1 ring-primary/5 sombra-card">
             <span className="grid h-11 w-11 shrink-0 place-items-center bg-secondary-100 text-primary">
               <Icon className="h-5 w-5" strokeWidth={1.7} aria-hidden="true" />
             </span>

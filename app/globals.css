@@ -39,7 +39,7 @@
 
 /* Fontes (definidas em app/layout.tsx via next/font) */
 @theme inline {
-  /* Títulos: EB Garamond · Texto: Manrope (definidas em app/layout.tsx) */
+  /* Títulos: Playfair Display · Texto: Manrope (definidas em app/layout.tsx) */
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-display), ui-serif, Georgia, serif;
 }
@@ -54,6 +54,16 @@
     background-color: var(--color-surface);
     color: var(--color-ink);
     font-family: var(--font-sans);
+    /* Textos justificados no site todo. Blocos com text-center/text-left
+       continuam valendo (a classe no elemento sobrepõe a herança). */
+    text-align: justify;
+  }
+
+  /* Hifenização em português e última linha equilibrada: evitam os
+     "buracos" que o justificado abre em colunas estreitas. */
+  p {
+    hyphens: auto;
+    text-wrap: pretty;
   }
 
   h1,
@@ -68,6 +78,7 @@
        palavras. A hifenização (pt-BR) e o "pretty" ajudam a reduzir os espaços. */
     hyphens: auto;
     text-wrap: pretty;
+    text-align: left;
     @media (width >= 40rem) {
       text-align: justify;
     }
@@ -119,6 +130,19 @@
   }
 }
 
+/* Sombras dos cards: uma de contato (perto) + uma difusa (longe), no tom do azul-marinho */
+@utility sombra-card {
+  box-shadow:
+    0 1px 2px rgb(12 18 32 / 0.06),
+    0 12px 30px -12px rgb(12 18 32 / 0.22);
+}
+
+@utility sombra-card-forte {
+  box-shadow:
+    0 2px 4px rgb(12 18 32 / 0.06),
+    0 26px 48px -18px rgb(12 18 32 / 0.34);
+}
+
 /* Remove setas de inputs numéricos (filtros de preço) */
 @utility no-spinner {
   -moz-appearance: textfield;
@@ -142,6 +166,36 @@
 
 @utility animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Mapa no celular do hero: pinos "caem" no lugar e o ponto pulsa */
+@keyframes pino-cai {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulso {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.mapa-pino {
+  animation: pino-cai 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.mapa-pulso {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulso 2.4s ease-out infinite;
 }
 
 /* ==========================================================================
@@ -238,12 +292,25 @@
   background-color: #070d1a;
   background-image:
     var(--textura-grao),
-    /* escurece o lado do texto (desktop) e a base */
-    linear-gradient(90deg, rgb(4 8 16 / 0.55) 0%, rgb(4 8 16 / 0.15) 45%, transparent 70%),
+    /* canto superior esquerdo: degradê para o preto */
+    radial-gradient(ellipse 65% 80% at 0% 0%, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0.4) 40%, transparent 75%),
+    /* lado direito: luz suave */
+    radial-gradient(ellipse 50% 65% at 100% 40%, rgb(214 225 246 / 0.22), rgb(214 225 246 / 0.07) 50%, transparent 75%),
+    /* escurece a base */
     linear-gradient(180deg, transparent 55%, rgb(4 8 16 / 0.45) 100%),
-    /* leve brilho dourado no alto, atrás do título */
-    radial-gradient(ellipse 60% 55% at 10% 8%, rgb(201 168 118 / 0.09), transparent 60%),
     linear-gradient(160deg, #15223d 0%, #0b1426 55%, #070d1a 100%);
+}
+/* Desktop: a foto ocupa a direita, então a luz fica junto da curva,
+   no limite direito da área azul (atrás do cartão de visita) */
+@media (width >= 64rem) {
+  .fundo-hero {
+    background-image:
+      var(--textura-grao),
+      radial-gradient(ellipse 50% 75% at 0% 0%, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0.4) 40%, transparent 75%),
+      radial-gradient(ellipse 32% 62% at 50% 45%, rgb(214 225 246 / 0.24), rgb(214 225 246 / 0.07) 50%, transparent 75%),
+      linear-gradient(180deg, transparent 55%, rgb(4 8 16 / 0.45) 100%),
+      linear-gradient(160deg, #15223d 0%, #0b1426 55%, #070d1a 100%);
+  }
 }
 
 .fundo-rodape {

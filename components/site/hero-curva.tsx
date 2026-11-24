@@ -11,16 +11,19 @@
  */
 
 /**
- * Borda esquerda da foto no desktop (de cima para baixo):
- * começa a 30% da largura, avança sobre o texto até ~4% (em ~72% da altura)
- * e recua para 15% na base — assimétrica, sem formar meia-lua.
+ * Borda esquerda da foto no desktop (de cima para baixo), em forma de S:
+ * começa a 36% da largura, desce por trás do título até ~16% na altura do
+ * cartão de visita e depois abre para a direita (~50% na base), contornando
+ * a mão que segura o cartão — assim a faixa fica visível de cima até embaixo.
  */
 const CURVA_DESKTOP = (dx = 0) =>
   [
-    `M${0.3 + dx} 0`,
-    `C${0.2 + dx} 0.09 ${0.215 + dx} 0.25 ${0.15 + dx} 0.4`,
-    `C${0.085 + dx} 0.55 ${0.025 + dx} 0.65 ${0.05 + dx} 0.78`,
-    `C${0.075 + dx} 0.91 ${0.12 + dx} 0.965 ${0.15 + dx} 1`,
+    `M${0.36 + dx} 0`,
+    `C${0.28 + dx} 0.06 ${0.24 + dx} 0.16 ${0.21 + dx} 0.27`,
+    `C${0.18 + dx} 0.36 ${0.16 + dx} 0.46 ${0.17 + dx} 0.56`,
+    `C${0.18 + dx} 0.64 ${0.21 + dx} 0.69 ${0.27 + dx} 0.735`,
+    `C${0.33 + dx} 0.78 ${0.45 + dx} 0.82 ${0.49 + dx} 0.9`,
+    `C${0.51 + dx} 0.94 ${0.51 + dx} 0.97 ${0.51 + dx} 1`,
   ].join(" ");
 
 /** Borda superior da foto no celular (da esquerda para a direita). */

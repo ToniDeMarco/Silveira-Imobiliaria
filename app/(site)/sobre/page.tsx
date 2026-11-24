@@ -87,7 +87,7 @@ export default function SobrePage() {
         <SectionHeading align="center" eyebrow="Nossos valores" title="O que guia o nosso trabalho" />
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {VALORES.map(({ Icon, titulo, texto }) => (
-            <li key={titulo} className="bg-white p-7 ring-1 ring-primary/5 transition hover:-translate-y-1 hover:shadow-lg">
+            <li key={titulo} className="bg-white p-7 ring-1 ring-primary/5 transition sombra-card hover:-translate-y-1 hover:sombra-card-forte">
               <span className="grid h-12 w-12 place-items-center bg-secondary-100 text-primary">
                 <Icon className="h-5.5 w-5.5" strokeWidth={1.7} aria-hidden="true" />
               </span>

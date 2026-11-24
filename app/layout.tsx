@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond, Manrope } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-// Títulos: EB Garamond — a Garamond clássica de livros e documentos.
-// Sóbria e tradicional, transmite seriedade, confiança e respeito.
-const display = EB_Garamond({
+// Títulos: Playfair Display — serifa de alto contraste, elegante e editorial.
+const display = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 

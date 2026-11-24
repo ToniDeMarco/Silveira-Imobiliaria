@@ -62,14 +62,14 @@ export default function ContatoPage() {
               </>
             );
             const classes =
-              "group flex items-center gap-4 bg-white p-5 ring-1 ring-primary/5";
+              "group flex items-center gap-4 bg-white p-5 ring-1 ring-primary/5 sombra-card";
             return (
               <li key={titulo}>
                 {href ? (
                   <a
                     href={href}
                     {...(externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className={`${classes} transition hover:-translate-y-0.5 hover:shadow-md`}
+                    className={`${classes} transition hover:-translate-y-0.5 hover:sombra-card-forte`}
                   >
                     {conteudo}
                   </a>

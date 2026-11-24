@@ -23,6 +23,8 @@ import { WhatsAppIcon } from "@/components/ui/brand-icons";
 import { BuscaRapida } from "@/components/imoveis/busca-rapida";
 import { ImovelGrid } from "@/components/imoveis/imovel-card";
 import { LogoMark } from "@/components/site/logo";
+import { Jornada } from "@/components/home/jornada";
+import { HeroMaos } from "@/components/home/hero-maos";
 import { jsonLdImobiliaria, serializarJsonLd } from "@/lib/seo";
 import {
   CLIP_FAIXA_DESKTOP,
@@ -49,6 +51,7 @@ export default function HomePage() {
       <Categorias />
       <Sobre />
       <Destaques />
+      <Jornada />
       <ChamadaWhatsApp />
     </>
   );
@@ -57,6 +60,8 @@ export default function HomePage() {
 /**
  * Hero dividido: texto à esquerda sobre fundo escuro e foto à direita,
  * separados por uma curva orgânica (components/site/hero-curva.tsx).
+ * No desktop, título no alto e as mãos com o celular e o cartão de visita
+ * (components/home/hero-maos.tsx) no lugar do texto e dos botões.
  * No celular/tablet a curva vira horizontal, no topo da foto.
  * A busca rápida atravessa a divisa entre o hero e o bege da página.
  */
@@ -91,23 +96,29 @@ function Hero() {
           />
         </div>
 
-        <div className="container-site relative pt-6 sm:pt-16 lg:flex lg:min-h-[40rem] lg:items-center lg:pt-0 lg:pb-24 xl:min-h-[44rem]">
-          <div className="max-w-xl lg:max-w-[28rem] xl:max-w-xl">
-            {/* No celular o hero vai direto ao ponto: só selo, foto e busca */}
-            <div className="animate-fade-up max-sm:hidden">
+        <div className="container-site relative pt-6 sm:pt-16 lg:min-h-[42rem] lg:pt-12 xl:min-h-[46rem]">
+          <div className="flex max-w-xl flex-col lg:max-w-none">
+            {/* No celular o hero vai direto ao ponto: só selo, foto e busca.
+                No desktop o selo "Venda e locação" vem logo abaixo do título. */}
+            <div className="animate-fade-up max-sm:hidden lg:order-2 lg:mt-6">
               <Eyebrow tone="dark">Venda e locação de imóveis</Eyebrow>
             </div>
+            {/* Desktop: linha curta abaixo do selo (no tablet aparece o texto completo) */}
+            <p className="animate-fade-up mt-4 hidden text-lg text-white/75 [animation-delay:200ms] lg:order-3 lg:block">
+              Casas, apartamentos, terrenos e muito mais.
+            </p>
             {/* Título só visual a partir do tablet; no celular segue para Google e leitores de tela */}
-            <h1 className="animate-fade-up mt-6 text-[2.75rem] max-sm:sr-only leading-[1.02] font-semibold text-white [animation-delay:120ms] sm:text-6xl lg:text-[3.4rem] xl:text-[4.25rem]">
-              Encontre o imóvel
-              <br />
-              <span className="text-secondary-300">ideal</span> em {siteConfig.city}
+            {/* Uma linha só: os tamanhos acompanham a largura disponível até a curva da foto */}
+            <h1 className="animate-fade-up mt-6 lg:mt-0 text-[2.75rem] leading-[1.05] font-semibold whitespace-nowrap text-white [animation-delay:120ms] max-sm:sr-only sm:text-[3.1rem] md:text-[3.9rem] lg:text-[2.8rem] xl:text-[3.6rem]">
+              Encontre o imóvel <span className="text-secondary-300">ideal</span>
             </h1>
-            <p className="animate-fade-up mt-6 max-w-md text-base max-sm:hidden text-white/70 [animation-delay:240ms] sm:text-lg lg:max-w-[22rem] xl:max-w-md">
+            {/* Texto de apoio: fora do desktop por enquanto (layout com as mãos) */}
+            <p className="animate-fade-up mt-6 max-w-md text-base text-white/70 [animation-delay:240ms] max-sm:hidden sm:text-lg lg:hidden">
               Casas, apartamentos, terrenos e imóveis rurais à venda e para alugar, com atendimento
               próximo e toda a segurança que a sua negociação merece.
             </p>
-            <div className="animate-fade-up mt-9 flex flex-wrap items-center gap-3 [animation-delay:360ms] max-sm:hidden">
+            {/* No desktop os botões e o CRECI ficam no cartão de visita */}
+            <div className="animate-fade-up mt-9 flex flex-wrap items-center gap-3 [animation-delay:360ms] max-sm:hidden lg:hidden">
               <Link href="/imoveis" className={buttonClasses({ variant: "secondary", size: "lg" })}>
                 Ver imóveis
                 <ArrowRight className="h-4.5 w-4.5" aria-hidden="true" />
@@ -126,7 +137,7 @@ function Hero() {
             </div>
 
             {/* Selo de credencial (no lugar de números inventados) */}
-            <div className="animate-fade-up mt-10 flex items-center gap-3 [animation-delay:480ms] max-sm:mt-0 max-sm:[animation-delay:0ms]">
+            <div className="animate-fade-up mt-10 flex items-center gap-3 [animation-delay:480ms] max-sm:mt-0 max-sm:[animation-delay:0ms] lg:hidden">
               <span className="grid h-12 w-12 place-items-center rounded-full bg-white/5 ring-1 ring-white/15">
                 <LogoMark tone="light" className="h-6 w-6" />
               </span>
@@ -137,6 +148,9 @@ function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Desktop: mãos com o celular e o cartão de visita (por cima do texto) */}
+        <HeroMaos />
 
         {/* Foto (celular/tablet): ponta a ponta, com a curva no topo */}
         <div
@@ -189,7 +203,7 @@ function Categorias() {
           <li key={tipo}>
             <Link
               href={`/imoveis?tipo=${tipo}`}
-              className="group flex flex-col items-center gap-3 bg-white/60 px-2 py-5 text-center ring-1 ring-primary/5 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
+              className="group flex flex-col items-center gap-3 bg-white px-2 py-5 text-center ring-1 ring-primary/5 transition sombra-card hover:-translate-y-0.5 hover:sombra-card-forte"
             >
               <span className="grid h-12 w-12 place-items-center rounded-full bg-secondary-100 text-primary transition group-hover:bg-primary group-hover:text-secondary-200">
                 <Icon className="h-5.5 w-5.5" strokeWidth={1.6} aria-hidden="true" />
